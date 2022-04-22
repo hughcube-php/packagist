@@ -1,0 +1,9 @@
+
+parameters:
+    level: 4
+    paths:
+        - app
+    inferPrivatePropertyTypeFromConstructor: true
+    excludePaths:
+
+    ignoreErrors:

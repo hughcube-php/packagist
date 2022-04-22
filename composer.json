@@ -1,0 +1,88 @@
+{
+    "name": "laravel/laravel",
+    "type": "project",
+    "description": "The Laravel Framework.",
+    "keywords": [
+        "framework",
+        "laravel"
+    ],
+    "license": "MIT",
+    "require": {
+        "php": "^8.1",
+        "fruitcake/laravel-cors": "^2.0",
+        "laravel/framework": "^8.75",
+        "laravel/sanctum": "^2.11",
+        "laravel/tinker": "^2.5",
+        "composer/satis": "dev-main#19eb30571b39689e87090a00d00892c04015a3fb",
+        "hughcube/laravel-dingtalk": "^1.0",
+        "hughcube/laravel-alifc": "^4.0",
+        "hughcube/laravel-knight": "^4.0",
+        "hughcube/laravel-octane": "^1.0"
+    },
+    "require-dev": {
+        "fakerphp/faker": "*",
+        "laravel/sail": "*",
+        "mockery/mockery": "*",
+        "nunomaduro/collision": "*",
+        "phpunit/phpunit": "*",
+        "spatie/laravel-ignition": "*",
+        "swoole/ide-helper": "*",
+        "reliese/laravel": "*",
+        "barryvdh/laravel-ide-helper": "*",
+        "jetbrains/phpstorm-attributes": "*",
+        "phpstan/phpstan": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/",
+            "Database\\Factories\\": "database/factories/",
+            "Database\\Seeders\\": "database/seeders/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "post-autoload-dump": [
+            "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
+            "@php artisan package:discover --ansi"
+        ],
+        "post-update-cmd": [
+            "@php artisan vendor:publish --tag=laravel-assets --ansi --force"
+        ],
+        "post-root-package-install": [
+            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+        ],
+        "post-create-project-cmd": [
+            "@php artisan key:generate --ansi"
+        ],
+        "ide": [
+            "@php artisan ide-helper:generate",
+            "@php artisan ide-helper:meta"
+        ],
+        "style": [
+            "phpcbf -p --standard=PSR2 src/ -v",
+            "phpcs -p --standard=PSR2 src/ -v"
+        ],
+        "test": [
+            "phpunit --verbose --coverage-clover=coverage.clover"
+        ],
+        "phpstan": [
+            "phpstan analyse -vvv --memory-limit=-1"
+        ]
+    },
+    "extra": {
+        "laravel": {
+            "dont-discover": []
+        }
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}

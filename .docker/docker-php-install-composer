@@ -1,0 +1,13 @@
+#!/bin/sh
+set -e
+
+# shellcheck disable=SC2039
+VERSION="$1"
+
+if [ -z "$VERSION" ]; then
+    curl -sfL https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer
+else
+    curl -sfL https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer --version="$VERSION"
+fi
+
+chmod +x /usr/bin/composer
