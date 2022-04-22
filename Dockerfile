@@ -50,7 +50,7 @@ RUN php artisan octane:prepare --host="0.0.0.0" --port=80 --workers=2 --task-wor
 RUN php artisan user:flush
 RUN php artisan token:flush
 
-# hugh.li
+# 创建composer访问用户
 RUN php artisan user:create "local"
 RUN php artisan token:create "local" --username="local" --abilities="*" --plain_text_token="local"
 
