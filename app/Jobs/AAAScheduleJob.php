@@ -19,15 +19,6 @@ class AAAScheduleJob extends \HughCube\Laravel\Knight\Queue\Jobs\ScheduleJob
         parent::pushJob($job);
     }
 
-    protected function fireJobIfDue(string $expression, $job)
-    {
-        if ($this->isDue($expression)) {
-            app(Dispatcher::class)->dispatchNow($job);
-        }
-    }
-
-
-
     protected function cleanFilesJobHandler()
     {
         $this->pushJobIfDue('01 03 * * *', CleanFilesJob::new([
