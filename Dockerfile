@@ -1,12 +1,8 @@
 
-ARG BASE_IMAGE=registry.cn-hangzhou.aliyuncs.com/hughcube/packagist:base-1733511-1
+ARG BASE_IMAGE=.docker/dockerfile(构建出来的镜像)
 
 # 代码构建
 FROM ${BASE_IMAGE} AS builder
-
-# composer 慧哲私有仓库的账号密码
-ARG COMPOSER_HZCUBE_USERNAME
-ARG COMPOSER_HZCUBE_PASSWORD
 
 # composer的构建环境变量
 ENV COMPOSER_MEMORY_LIMIT -1
